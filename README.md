@@ -31,7 +31,7 @@ services:
       - "API_PASSWORD=secret"
 
   prom-upsc:
-    image: jzck/upsc_exporter
+    image: jzck/upsc-exporter
     restart: unless-stopped
     depends_on:
       - nut-upsd
