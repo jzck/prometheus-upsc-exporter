@@ -4,12 +4,20 @@
 file="$1"
 mime='text/plain'
 
+read request
+
+# ignore the header
+while /bin/true; do
+        read header
+        [ "$header" == $'\r' ] && break
+done
+
 if [ ! -f "$file" ]; then
-	echo "$1: No such file or directory" >&2
+	echo "HTTP/1.1 500 Internal Server Error\r\nConnection: close\r\n\r\n$1: No such file or directory" >&2
 	exit 1
 fi
 
-. $file > /tmp/.$$.output
+. $file > /tmp/.$$.output 2>&1
 
 size=$(stat -c "%s" "/tmp/.$$.output")
 
