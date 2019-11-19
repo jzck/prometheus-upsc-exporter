@@ -1,0 +1,15 @@
+[Unit]
+Description=Prometheus exporter for upsc
+Requires=upsc-exporter.socket
+
+[Service]
+Type=simple
+ExecStart=/bin/bash ./http_wrapper.sh upsc_exporter.sh
+WorkingDirectory=/home/prometheus-exporters/prometheus-upsc-exporter
+StandardInput=socket
+StandardError=journal
+TimeoutStopSec=5
+RuntimeMaxSec=10
+
+[Install]
+WantedBy=multi-user.target

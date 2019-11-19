@@ -1,0 +1,11 @@
+[Unit]
+Description=Socket for Prometheus exporter for upsc
+
+[Socket]
+ListenStream=9102
+Accept=yes
+Writable=true
+
+[Install]
+WantedBy=sockets.target
+
