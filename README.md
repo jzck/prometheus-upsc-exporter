@@ -41,4 +41,9 @@ services:
       - 9614
 ```
 
-Can also be used with another `upsd`, just make sure the container can see the
+# Using with systemd
+
+1. Copy files `upsc-exporter.socket` and `upsc-exporter@.service` to `/etc/systemd/system`
+2. Edit port number in `upsc-exporter.socket` and paths in `upsc-exporter@.service` according to your configuration
+3. `sudo systemctl enable upsc-exporter.socket`
+
