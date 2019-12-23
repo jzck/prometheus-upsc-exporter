@@ -44,7 +44,8 @@ services:
 # Using with systemd
 
 1. Copy files `upsc-exporter.socket` and `upsc-exporter@.service` to `/etc/systemd/system`
-2. Edit port number on line 5 (`ListenStream=`) in file `upsc-exporter.socket` and paths in file `upsc-exporter@.service` according to your configuration
-3. `sudo systemctl daemon-reload`
-4. `sudo systemctl enable upsc-exporter.socket`
+1. Open file `/etc/systemd/system/upsc-exporter.socket` in text editor, end edit port number on line 5 (`ListenStream=`) according to your configuration
+1. Open file `/etc/systemd/system/upsc-exporter@.service` and edit paths according to your configuration.
+1. `sudo systemctl daemon-reload`
+1. `sudo systemctl enable upsc-exporter.socket`
 
